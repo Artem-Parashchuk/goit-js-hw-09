@@ -1,4 +1,4 @@
-const userData = {}
+const userData = JSON.parse(localStorage.getItem("feedback-form-state")) || {};
 const formEl = document.querySelector('.feedback-form')
 
 // Перевіряємо наявність даних у localStorage, якщо вони є - записуємо їх у поля
@@ -20,7 +20,7 @@ checkForm()
 
 // В localStorage записуємо дані які вводить користувач
 function changeForm(event) {
-    const changeValue = event.target.value;
+    const changeValue = event.target.value.trim();
     const changeName = event.target.name;
 
     userData[changeName] = changeValue
